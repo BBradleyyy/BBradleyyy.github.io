@@ -50,7 +50,7 @@
 
 <section class="wrap" style="padding-top:56px">
   <div class="stats">
-    <div class="stat"><b data-count="9">9</b><span>model types</span></div>
+    <div class="stat"><b data-count="10">10</b><span>model types</span></div>
     <div class="stat"><b>Minutes</b><span>vs. a 2-day manual build</span></div>
     <div class="stat"><b data-count="7000" data-suffix="+">7,000+</b><span>automated tests</span></div>
     <div class="stat"><b>0</b><span>guessed figures</span></div>
@@ -70,6 +70,7 @@
         <li>Every workbook line is compared with an independent Python engine</li>
         <li>Every workbook recalculates in LibreOffice with zero error cells</li>
         <li>Balance sheets balance every year; integrity checks on every model</li>
+        <li>Every figure read from a PDF shows its line, statement and page</li>
         <li>Professional colour coding: inputs blue, formulas black, links green</li>
       </ul>
     </div>
@@ -79,12 +80,14 @@
 <section class="wrap models" style="padding-top:48px">
   <h2 class="h2s">The models</h2>
   <div class="grid2" style="gap:16px">
-    <article class="card"><h3>Full company model</h3><p class="d">Three statements, schedules, debt, cost of capital, DCF, sensitivities and three scenarios, from a ticker's SEC filings. 12 tabs.</p></article>
+    <article class="card"><h3>Full company model</h3><p class="d">Three statements, schedules, debt, cost of capital, DCF, sensitivities and three scenarios, from a ticker's SEC filings or an annual report PDF (US or Canadian). 12 tabs.</p></article>
+    <article class="card"><h3>Merger model</h3><p class="d">Accretion and dilution, purchase accounting with goodwill, synergies and a pro forma balance sheet. Share prices come from the market.</p></article>
     <article class="card"><h3>Leveraged buyout</h3><p class="d">Sources and uses, debt tranches with a cash sweep, covenants, dividend recap, management incentive pool, returns attribution.</p></article>
-    <article class="card"><h3>Merger model</h3><p class="d">Accretion and dilution, purchase accounting with goodwill, synergies and a pro forma balance sheet.</p></article>
+    <article class="card"><h3>Growth equity</h3><p class="d">A minority stake with a convertible preference: primary and secondary, exit cases, the waterfall, returns and the value-creation bridge.</p></article>
     <article class="card"><h3>Startup</h3><p class="d">Product revenue and unit economics, a hiring plan, runway, the funding round with the option pool, and the venture capital method.</p></article>
-    <article class="card"><h3>Infrastructure</h3><p class="d">Project finance and regulated network models. Available to share on request.</p></article>
     <article class="card"><h3>Venture capital</h3><p class="d">Rounds with an option-pool shuffle, SAFEs, the cap table after every round, and an exit waterfall with liquidation preferences.</p></article>
+    <article class="card"><h3>Investment memo</h3><p class="d">Every model writes an IC-style memo in Word: the key figures, what has to go right, diligence questions, and every source with its page.</p></article>
+    <article class="card"><h3>Infrastructure</h3><p class="d">Project finance and regulated network models. Available to share on request.</p></article>
   </div>
 </section>
 
@@ -93,7 +96,7 @@
   <video controls preload="metadata" poster="img/web-startup.jpg">
     <source src="media/signalnorth-walkthrough.mp4" type="video/mp4">
   </video>
-  <p class="note">The startup and venture capital models: fill in the terms, build, and read the summary memo; then the funding round in the Excel workbook.</p>
+  <p class="note">The startup and growth equity models: fill in the terms, build, and read the summary; then the funding round in the Excel workbook.</p>
 </section>
 
 <section class="wrap" style="padding-top:48px">
@@ -106,6 +109,10 @@
     <figure>
       <div class="frame"><img src="img/excel-round.png" alt="The Round tab of the startup workbook: terms, ownership before and after, sources and uses" width="1626" height="1321" loading="lazy"></div>
       <figcaption>The workbook: live formulas, colour coded. Here, the startup model's funding round: price per share, the option pool top-up, ownership before and after, and sources and uses.</figcaption>
+    </figure>
+    <figure>
+      <div class="frame"><img src="img/web-growth.jpg" alt="Model Builder with a growth equity summary" width="1600" height="1000" loading="lazy"></div>
+      <figcaption>Growth equity: the entry, returns by case and where the value came from.</figcaption>
     </figure>
     <figure>
       <div class="frame"><img src="img/web-venture.jpg" alt="Model Builder with a venture capital summary" width="1600" height="1000" loading="lazy"></div>
@@ -121,6 +128,7 @@
     <table>
       <thead><tr><th>Model</th><th>Example</th><th class="r">File</th></tr></thead>
       <tbody>
+        <tr><td>Growth equity</td><td class="ex">Software company, minority stake with a preference (illustrative)</td><td class="r"><a href="samples/SignalNorth-Growth-Equity.xlsx" download>Download .xlsx</a></td></tr>
         <tr><td>Startup</td><td class="ex">Materials startup raising a Series A (illustrative)</td><td class="r"><a href="samples/SignalNorth-Startup.xlsx" download>Download .xlsx</a></td></tr>
         <tr><td>Venture capital</td><td class="ex">Seed to Series B (illustrative)</td><td class="r"><a href="samples/SignalNorth-Venture-Capital.xlsx" download>Download .xlsx</a></td></tr>
         <!-- SAMPLE-ROWS: full company model (MSFT), LBO and merger rows go here once built locally -->
