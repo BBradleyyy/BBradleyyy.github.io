@@ -267,3 +267,4 @@ figure:hover .frame { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(
   .progress { display: none; }
   .role::before { transform: scaleY(1); }
 }
+.live-note { margin: 14px 0 0; font-size: 13px; color: var(--on-navy-muted); max-width: 560px; }
