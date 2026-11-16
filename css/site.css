@@ -438,3 +438,20 @@ figure:hover .frame { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(
 .tx-watch td { padding: 7px 2px; border-bottom: 1px solid var(--tx-line); }
 .tx-watch td:first-child { width: 58%; }
 .tx-table th:last-child, .tx-table td:last-child { text-align: right; }
+
+/* proof links under the featured project */
+.proof { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
+.proof a { display: block; text-decoration: none; background: #fff; border: 1px solid var(--card-line); border-radius: 10px; padding: 14px 16px; transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
+.proof a:hover { border-color: var(--blue); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(11,42,111,.08); }
+.proof b { display: block; color: var(--navy); font-size: 15px; }
+.proof b::after { content: " →"; color: var(--blue); }
+.proof span { display: block; margin-top: 3px; color: var(--muted); font-size: 13px; line-height: 1.4; }
+@media (max-width: 900px) { .proof { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .proof { grid-template-columns: 1fr; } }
+.role .what li a { font-weight: 600; white-space: nowrap; }
+.case-card { display: block; text-decoration: none; margin-top: 20px; background: #fff; border: 1px solid var(--card-line); border-left: 4px solid #B45F06; border-radius: 10px; padding: 22px 24px; transition: transform .2s ease, box-shadow .2s ease; }
+.case-card:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(11,42,111,.10); }
+.case-card .status { margin: 0 0 6px; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #B45F06; }
+.case-card h3 { margin: 0 0 6px; color: var(--ink); font-size: 20px; }
+.case-card .d { margin: 0 0 10px; color: var(--text); font-size: 15.5px; line-height: 1.6; }
+.case-card .more { color: var(--blue); font-weight: 600; font-size: 15px; }
