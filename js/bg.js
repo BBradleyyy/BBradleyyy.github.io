@@ -38,9 +38,9 @@
       candles = []; var p = 100;
       for (var i = 0; i < 46; i++) candles.push(next(p)), p = candles[candles.length - 1].c;
       lines = [[], []];
-      for (var k = 0; k < 1; k++) { var v = rnd(0.35, 0.65); for (var j = 0; j < 9; j++) { v += rnd(-0.16, 0.16); v = Math.min(0.9, Math.max(0.15, v)); lines[k].push(v); } }
+      for (var k = 0; k < 2; k++) { var v = rnd(0.35, 0.65); for (var j = 0; j < 9; j++) { v += rnd(-0.16, 0.16); v = Math.min(0.9, Math.max(0.15, v)); lines[k].push(v); } }
       nums = [];
-      for (var n = 0; n < 6; n++) nums.push({ x: 0.60 + 0.07 * n + rnd(-0.01, 0.01), y: rnd(0.12, 0.80), v: rnd(15, 240), up: true, s: rnd(12, 16) });
+      for (var n = 0; n < 7; n++) nums.push({ x: 0.62 + 0.055 * n + rnd(-0.01, 0.01), y: rnd(0.12, 0.80), v: rnd(15, 240), up: Math.random() < 0.55, s: rnd(12, 17) });
     }
     function next(p) {
       var o = p, c = Math.max(20, o + rnd(-4.2, 4.6)), hi = Math.max(o, c) + rnd(0.3, 3), lo = Math.min(o, c) - rnd(0.3, 3);
@@ -78,8 +78,8 @@
       var Y = function (v) { return bot - (bot - top) * (v - lo) / (hi - lo || 1); };
       ctx.shadowBlur = 0;
       candles.forEach(function (k, i) {
-        var up = k.c >= k.o, col = up ? '#8FB4FF' : '#3E5C99', x = x0 + i * cw + cw / 2;
-        var fade = 0.12 + 0.5 * (i / candles.length);
+        var up = k.c >= k.o, col = up ? '#3FBF9B' : '#E0736F', x = x0 + i * cw + cw / 2;
+        var fade = 0.15 + 0.6 * (i / candles.length);
         ctx.globalAlpha = fade; ctx.shadowColor = col; ctx.strokeStyle = col; ctx.fillStyle = col;
         ctx.beginPath(); ctx.moveTo(x, Y(k.h)); ctx.lineTo(x, Y(k.l)); ctx.lineWidth = 1.2; ctx.stroke();
         var y1 = Y(Math.max(k.o, k.c)), y2 = Y(Math.min(k.o, k.c));
@@ -87,7 +87,7 @@
       });
       ctx.globalAlpha = 1; ctx.shadowBlur = 0;
       // trend lines
-      [['rgba(143,180,255,.55)', 0]].forEach(function (s) {
+      [['rgba(94,214,200,.45)', 0], ['rgba(224,115,111,.32)', 1]].forEach(function (s) {
         var pts = lines[s[1]]; ctx.strokeStyle = s[0]; ctx.lineWidth = 1.4;
         ctx.beginPath();
         pts.forEach(function (v, i) { var x = w * (0.05 + 0.9 * i / (pts.length - 1)), y = top + (bot - top) * (1 - v); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); });
@@ -98,8 +98,9 @@
       nums.forEach(function (n, idx) {
         if (narrow) return;
         ctx.font = '500 ' + n.s + 'px Inter, system-ui, sans-serif';
-        ctx.fillStyle = 'rgba(190,210,245,.32)';
-        ctx.fillText(n.v.toFixed(2), w * n.x, h * n.y);
+        ctx.fillStyle = n.up ? 'rgba(63,191,155,.55)' : 'rgba(224,115,111,.5)';
+        var nx = Math.max(w * n.x, w / 2 + 120 + (n.x - 0.62) * 1400);
+        if (nx < w - 60) ctx.fillText(n.v.toFixed(2), nx, h * n.y);
       });
       // keep the text side readable
       var shade = ctx.createLinearGradient(0, 0, w, 0);
