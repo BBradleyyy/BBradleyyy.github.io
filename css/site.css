@@ -150,3 +150,56 @@ th.r,td.r{text-align:right;white-space:nowrap}
   .cta-box{padding:28px}
   .feature .body{padding:22px}
 }
+
+/* ---------------------------------------------------------------- motion */
+.hero, .p-hero { position: relative; overflow: hidden; }
+.hero .wrap, .p-hero .wrap { position: relative; z-index: 1; }
+.hero-chart { position: absolute; inset: auto 0 0 0; width: 100%; height: 72%; z-index: 0;
+  pointer-events: none; }
+.hero-chart .grid line { stroke: #D5DEEC; stroke-width: 1; }
+.hero-chart .line { fill: none; stroke: var(--blue); stroke-width: 2.5; opacity: .35;
+  stroke-linecap: round; stroke-linejoin: round; }
+.hero-chart .area { fill: url(#heroFade); opacity: .55; }
+.p-hero .hero-chart .grid line { stroke: rgba(255,255,255,.08); }
+.p-hero .hero-chart .line { stroke: #9DB8E6; opacity: .45; }
+.p-hero .hero-chart .area { opacity: .25; }
+.motion .hero-chart .line { stroke-dasharray: 2400; stroke-dashoffset: 2400;
+  animation: draw 2.6s cubic-bezier(.4,0,.2,1) .3s forwards; }
+.motion .hero-chart .area { opacity: 0; animation: fadein 1.2s ease 1.9s forwards; }
+.motion .hero-chart .dot { opacity: 0; animation: fadein .4s ease 2.8s forwards; }
+.hero-chart .dot { fill: var(--blue); }
+.p-hero .hero-chart .dot { fill: #DCE6F7; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes fadein { to { opacity: .55; } }
+.motion .hero-text > *, .motion .p-hero .wrap > * { opacity: 0; transform: translateY(14px);
+  animation: rise .7s cubic-bezier(.2,.7,.2,1) forwards; }
+.motion .hero-text > *:nth-child(2), .motion .p-hero .wrap > *:nth-child(2) { animation-delay: .08s; }
+.motion .hero-text > *:nth-child(3), .motion .p-hero .wrap > *:nth-child(3) { animation-delay: .16s; }
+.motion .hero-text > *:nth-child(4), .motion .p-hero .wrap > *:nth-child(4) { animation-delay: .24s; }
+.motion .portrait img { opacity: 0; transform: scale(.94); animation: pop .8s cubic-bezier(.2,.7,.2,1) .25s forwards; }
+@keyframes rise { to { opacity: 1; transform: none; } }
+@keyframes pop { to { opacity: 1; transform: none; } }
+
+.motion .reveal { opacity: 0; transform: translateY(18px);
+  transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1); }
+.motion .reveal.in { opacity: 1; transform: none; }
+
+.card, .stat, .feature, .role, .btn { transition: transform .2s ease, box-shadow .2s ease,
+  border-color .2s ease, background-color .2s ease, color .2s ease; }
+.motion .reveal.in.card:hover, .motion .reveal.in.stat:hover { transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(11,42,111,.10); border-color: #B8C7E0; }
+.motion .reveal.in.feature:hover { transform: translateY(-3px); }
+.feature .shot img { transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+.feature:hover .shot img { transform: scale(1.02); }
+.btn:hover { transform: translateY(-1px); }
+.nav a:not(.btn) { position: relative; }
+.nav a:not(.btn)::after { content: ""; position: absolute; left: 12px; right: 12px; bottom: 4px;
+  height: 2px; background: var(--blue); transform: scaleX(0); transform-origin: left;
+  transition: transform .25s ease; }
+.nav a:not(.btn):hover::after { transform: scaleX(1); }
+.more { transition: letter-spacing .2s ease; }
+.feature:hover .more { letter-spacing: .01em; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
