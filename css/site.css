@@ -455,3 +455,14 @@ figure:hover .frame { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(
 .case-card h3 { margin: 0 0 6px; color: var(--ink); font-size: 20px; }
 .case-card .d { margin: 0 0 10px; color: var(--text); font-size: 15.5px; line-height: 1.6; }
 .case-card .more { color: var(--blue); font-weight: 600; font-size: 15px; }
+
+/* ---------------------------------------------------------------- polish pass */
+.section, .band { scroll-margin-top: 72px; }
+#desk { scroll-margin-top: 72px; padding-bottom: 48px; }
+.desk-section { border-top: 1px solid var(--line); margin-top: 56px; }
+.hero h1 { letter-spacing: -.015em; }
+.hero .eyebrow { letter-spacing: .14em; }
+.two-col { padding-top: 64px; }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
+::selection { background: #C9DBF7; }
+.site-footer { margin-top: 24px; }
