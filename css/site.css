@@ -341,3 +341,4 @@ figure:hover .frame { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(
 @keyframes an-bar { from { transform: scaleY(.75); } to { transform: scaleY(1.05); } }
 .calm .analyst .an-bars rect, .calm .analyst .an-lens { animation: none; }
 @media (max-width: 860px) { .desk-head { grid-template-columns: 1fr; gap: 20px; } }
+.hero .portrait img { border: 3px solid rgba(143,180,255,.55); box-shadow: 0 0 0 8px rgba(91,141,239,.12), 0 18px 44px rgba(0,0,0,.5); }
