@@ -313,3 +313,15 @@ figure:hover .frame { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(
   .dbtn kbd { display: none; }
   .prose.punchy .big { font-size: 22px; }
 }
+
+/* ---------------------------------------------------------------- dark trading-floor hero */
+.hero, .p-hero { background: #05112B; border-bottom: 0; }
+.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; }
+.hero .eyebrow { color: #8FB4FF; }
+.hero h1 { color: #fff; text-shadow: 0 2px 18px rgba(0,0,0,.35); }
+.hero .lede { color: #DCE6F7; }
+.hero .btn-outline { background: rgba(255,255,255,.06); color: #fff; border-color: rgba(220,230,247,.45); }
+.hero .btn-outline:hover { background: rgba(255,255,255,.14); color: #fff; border-color: #fff; }
+.hero .portrait img { border-color: rgba(255,255,255,.9); box-shadow: 0 0 0 6px rgba(91,141,239,.25), 0 14px 40px rgba(0,0,0,.45); }
+.hero .wrap { padding-top: 96px; padding-bottom: 96px; }
+@media (max-width: 760px) { .hero .wrap { padding-top: 56px; padding-bottom: 56px; } }
