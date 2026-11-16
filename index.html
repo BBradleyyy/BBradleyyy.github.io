@@ -198,30 +198,53 @@
 
     </figure>
   </div>
-  <div class="desk" id="desk-app">
-    <div class="desk-top">
-      <div><span class="sym">SNF · front month</span><span class="sim">simulated</span></div>
-      <div class="px"><b id="d-price">5,000.00</b><span id="d-chg" class="chg">0.00%</span></div>
-      <div class="timer"><span id="d-time">60.0</span>s</div>
+  <div class="tx" id="desk-app">
+    <div class="tx-head">
+      <div class="tx-sym"><span class="tx-live"><i></i>LIVE · SIMULATED</span><b>SNF Z6</b><span class="tx-name">SignalNorth 500 Index Futures · Dec 2026</span></div>
+      <div class="tx-quote"><b id="d-price">5,000.00</b><span id="d-chg" class="chg up">+0.00 (0.00%)</span></div>
+      <dl class="tx-stats">
+        <div><dt>High</dt><dd id="d-hi">5,000.00</dd></div><div><dt>Low</dt><dd id="d-lo">5,000.00</dd></div>
+        <div><dt>Volume</dt><dd id="d-vol">0</dd></div><div><dt>Session</dt><dd id="d-time">60.0s</dd></div>
+      </dl>
     </div>
-    <div class="desk-chart"><canvas id="d-canvas" aria-label="Price chart" role="img"></canvas>
-      <div class="desk-news" id="d-news" aria-live="polite"></div>
-      <div class="desk-over" id="d-over"><div>
-        <p class="over-title" id="d-over-title">Ready when you are</p>
-        <p class="over-text" id="d-over-text">Buy to go long, Sell to go short, Flat to close. Up to 3 contracts either way. Lose $25,000 and you get a margin call.</p>
-        <button class="btn btn-primary" id="d-start" type="button">Start trading</button>
-      </div></div>
-    </div>
-    <div class="desk-controls">
-      <button class="dbtn buy" id="d-buy" type="button" disabled>Buy <kbd>B</kbd></button>
-      <button class="dbtn flat" id="d-flat" type="button" disabled>Flat <kbd>F</kbd></button>
-      <button class="dbtn sell" id="d-sell" type="button" disabled>Sell <kbd>S</kbd></button>
-      <div class="desk-stats">
-        <div><span>Position</span><b id="d-pos">Flat</b></div>
-        <div><span>Open P&amp;L</span><b id="d-open">$0</b></div>
-        <div><span>Total P&amp;L</span><b id="d-pnl">$0</b></div>
-        <div><span>Best</span><b id="d-best">–</b></div>
+    <div class="tx-body">
+      <aside class="tx-watch" aria-label="Watchlist">
+        <p class="tx-h">Watchlist</p>
+        <table><tbody id="d-watch"></tbody></table>
+      </aside>
+      <div class="tx-chart">
+        <div class="tx-tools"><span class="on">1s</span><span>5s</span><span>15s</span><span class="sep"></span><span>Candles</span><span>EMA 9</span><span>Vol</span></div>
+        <div class="tx-canvas"><canvas id="d-canvas" aria-label="Price chart" role="img"></canvas>
+          <div class="desk-news" id="d-news" aria-live="polite"></div>
+          <div class="desk-over" id="d-over"><div>
+            <p class="over-title" id="d-over-title">Market opens on your click</p>
+            <p class="over-text" id="d-over-text">60 seconds. Trade 1 to 3 contracts long or short at the bid and ask; $50 a point. Lose $25,000 and the desk issues a margin call.</p>
+            <button class="btn btn-primary" id="d-start" type="button">Open the market</button>
+          </div></div>
+        </div>
       </div>
+      <aside class="tx-ticket" aria-label="Order ticket">
+        <p class="tx-h">Order ticket · Market</p>
+        <div class="tx-qty" role="group" aria-label="Quantity"><span>Qty</span><button type="button" data-q="1" class="on">1</button><button type="button" data-q="2">2</button><button type="button" data-q="3">3</button></div>
+        <div class="tx-sides">
+          <button class="tx-sell" id="d-sell" type="button" disabled><span>SELL</span><b id="d-bid">4,999.75</b><small>bid · S</small></button>
+          <button class="tx-buy" id="d-buy" type="button" disabled><span>BUY</span><b id="d-ask">5,000.25</b><small>ask · B</small></button>
+        </div>
+        <button class="tx-flat" id="d-flat" type="button" disabled>Flatten position · F</button>
+        <dl class="tx-pos">
+          <div><dt>Position</dt><dd id="d-pos">Flat</dd></div>
+          <div><dt>Avg price</dt><dd id="d-avg">–</dd></div>
+          <div><dt>Open P&amp;L</dt><dd id="d-open">$0</dd></div>
+          <div><dt>Realized</dt><dd id="d-real">$0</dd></div>
+          <div><dt>Total P&amp;L</dt><dd id="d-pnl">$0</dd></div>
+          <div><dt>Best round</dt><dd id="d-best">–</dd></div>
+        </dl>
+        <div class="tx-margin"><div class="tx-margin-top"><span>Margin used</span><span id="d-mtext">$0 / $25,000</span></div><div class="tx-bar"><i id="d-mbar"></i></div></div>
+      </aside>
+    </div>
+    <div class="tx-foot">
+      <div class="tx-panel"><p class="tx-h">Fills</p><table class="tx-table"><thead><tr><th>Time</th><th>Side</th><th>Qty</th><th>Price</th></tr></thead><tbody id="d-fills"><tr class="empty"><td colspan="4">No fills yet</td></tr></tbody></table></div>
+      <div class="tx-panel"><p class="tx-h">Time &amp; sales</p><table class="tx-table"><thead><tr><th>Time</th><th>Price</th><th>Size</th></tr></thead><tbody id="d-tape"></tbody></table></div>
     </div>
   </div>
 </section>
