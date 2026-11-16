@@ -27,6 +27,7 @@
     <nav class="nav" aria-label="Sections">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
+      <a href="#desk">Play</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
       <a class="btn btn-navy" href="cv/Bradley-Kakiz-CV.pdf" target="_blank" rel="noopener">Check my CV</a>
@@ -64,10 +65,11 @@
       <p class="eyebrow">About</p>
       <h2>Who I am</h2>
     </div>
-    <div class="main prose">
-      <p>I'm Bradley (Dogukan) Kakiz: Financial Mathematics &amp; Economics and Statistics at UVic, class of 2028. I build the models behind credit and investment decisions, and I like finding where the numbers break.</p>
-      <p>Today that means development finance and credit as an analyst, running Propel Impact's screening as fund manager, and, from January 2027, UVic Treasury. In between, I build SignalNorth.</p>
-      <p>Off the clock I'm on the court or holding a guitar. Basketball gave me a national runner-up finish and three provincial titles; guitar has been with me for years, with piano and chess close behind.</p>
+    <div class="main prose punchy">
+      <p class="big">I'm Bradley Dogukan Kakiz.<br>Financial Mathematics &amp; Economics at UVic, class of 2028.</p>
+      <p>I like the part of finance where the numbers make the call: what a deal is worth, how much debt it can carry, and exactly where it breaks.</p>
+      <p class="hobbies"><span>14 years on guitar.</span> <span>National runner-up on the basketball court.</span></p>
+    </div>
     </div>
   </div>
 </section>
@@ -117,6 +119,38 @@
         </ul>
       </div>
     </article>
+  </div>
+</section>
+
+<section id="desk" class="wrap section desk-section">
+  <p class="eyebrow">Play</p>
+  <h2>Can you trade the tape?</h2>
+  <p class="desk-lede">Sixty seconds of a simulated index future: calm stretches, sudden volatility, headline shocks. Go long, go short, or sit it out. One point is worth $50.</p>
+  <div class="desk" id="desk-app">
+    <div class="desk-top">
+      <div><span class="sym">SNF · front month</span><span class="sim">simulated</span></div>
+      <div class="px"><b id="d-price">5,000.00</b><span id="d-chg" class="chg">0.00%</span></div>
+      <div class="timer"><span id="d-time">60.0</span>s</div>
+    </div>
+    <div class="desk-chart"><canvas id="d-canvas" aria-label="Price chart" role="img"></canvas>
+      <div class="desk-news" id="d-news" aria-live="polite"></div>
+      <div class="desk-over" id="d-over"><div>
+        <p class="over-title" id="d-over-title">Ready when you are</p>
+        <p class="over-text" id="d-over-text">Buy to go long, Sell to go short, Flat to close. Up to 3 contracts either way. Lose $25,000 and you get a margin call.</p>
+        <button class="btn btn-primary" id="d-start" type="button">Start trading</button>
+      </div></div>
+    </div>
+    <div class="desk-controls">
+      <button class="dbtn buy" id="d-buy" type="button" disabled>Buy <kbd>B</kbd></button>
+      <button class="dbtn flat" id="d-flat" type="button" disabled>Flat <kbd>F</kbd></button>
+      <button class="dbtn sell" id="d-sell" type="button" disabled>Sell <kbd>S</kbd></button>
+      <div class="desk-stats">
+        <div><span>Position</span><b id="d-pos">Flat</b></div>
+        <div><span>Open P&amp;L</span><b id="d-open">$0</b></div>
+        <div><span>Total P&amp;L</span><b id="d-pnl">$0</b></div>
+        <div><span>Best</span><b id="d-best">–</b></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -199,5 +233,6 @@
   </div>
 </footer>
 <script src="js/site.js" defer></script>
+<script src="js/desk.js" defer></script>
 </body>
 </html>

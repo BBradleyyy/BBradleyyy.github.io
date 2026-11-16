@@ -1,6 +1,7 @@
 /* Light motion for bradleykakiz.com: reveal on scroll, count-up figures, hero chart draw,
    scroll progress, section-aware nav and a cursor light on cards.
-   Everything is static when the visitor prefers reduced motion or scripts are off. */
+   With reduced motion asked for, things still fade in and count up, but nothing slides,
+   pulses or drifts. Static when scripts are off. */
 (function () {
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var root = document.documentElement;
@@ -9,7 +10,7 @@
   function onScroll() {
     var y = window.scrollY || 0, h = document.documentElement.scrollHeight - window.innerHeight;
     if (header) header.classList.toggle('scrolled', y > 8);
-    if (bar && !reduce) bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, y / h) : 0) + ')';
+    if (bar) bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, y / h) : 0) + ')';
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
@@ -35,8 +36,9 @@
     links.forEach(function (a) { var t = document.querySelector(a.getAttribute('href')); if (t) spy.observe(t); });
   }
 
-  if (reduce || !('IntersectionObserver' in window)) { root.classList.add('static'); return; }
+  if (!('IntersectionObserver' in window)) { root.classList.add('static'); return; }
   root.classList.add('motion');
+  if (reduce) root.classList.add('calm');
 
   var targets = document.querySelectorAll(
     '.section h2, .section .prose p, .role, .feature, .card, .two-col > div, .cta-box, .stat, ' +
