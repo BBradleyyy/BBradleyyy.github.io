@@ -1,8 +1,40 @@
-/* Light motion for bradleykakiz.com: reveal on scroll, count-up figures, hero chart draw.
+/* Light motion for bradleykakiz.com: reveal on scroll, count-up figures, hero chart draw,
+   scroll progress, section-aware nav and a cursor light on cards.
    Everything is static when the visitor prefers reduced motion or scripts are off. */
 (function () {
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var root = document.documentElement;
+  var header = document.querySelector('.site-header');
+  var bar = document.querySelector('.progress');
+  function onScroll() {
+    var y = window.scrollY || 0, h = document.documentElement.scrollHeight - window.innerHeight;
+    if (header) header.classList.toggle('scrolled', y > 8);
+    if (bar && !reduce) bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, y / h) : 0) + ')';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // cards: the soft light follows the cursor
+  document.querySelectorAll('.card, .stat').forEach(function (el) {
+    el.addEventListener('pointermove', function (e) {
+      var r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      el.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+
+  // nav: underline the section in view
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav a[href^="#"]'));
+  if (links.length && 'IntersectionObserver' in window) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.classList.toggle('here', a.getAttribute('href') === '#' + e.target.id); });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    links.forEach(function (a) { var t = document.querySelector(a.getAttribute('href')); if (t) spy.observe(t); });
+  }
+
   if (reduce || !('IntersectionObserver' in window)) { root.classList.add('static'); return; }
   root.classList.add('motion');
 
