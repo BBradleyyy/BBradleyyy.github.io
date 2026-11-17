@@ -470,3 +470,22 @@ figure:hover .frame { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(
 :focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; border-radius: 4px; }
 ::selection { background: #C9DBF7; }
 .site-footer { margin-top: 24px; }
+
+/* Page-to-page: a short cross-fade between the home, SignalNorth and case-study pages
+   (browsers without view transitions just load the page as before). */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .28s; animation-timing-function: ease; }
+.site-header { view-transition-name: site-header; }
+
+/* Press feedback: buttons give a little when clicked. */
+.motion .btn { transition: transform .15s ease, background-color .15s ease, border-color .15s ease, color .15s ease; }
+.motion .btn:active { transform: translateY(0) scale(.97); }
+
+/* Hobby icons lift slightly on hover. */
+.motion .hobbies li svg { transition: transform .25s cubic-bezier(.2,.7,.2,1); }
+.motion .hobbies li:hover svg { transform: translateY(-2px) rotate(-6deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+  .motion .btn:active, .motion .hobbies li:hover svg { transform: none; }
+}
