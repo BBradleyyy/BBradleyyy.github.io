@@ -489,3 +489,6 @@ figure:hover .frame { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(
   @view-transition { navigation: none; }
   .motion .btn:active, .motion .hobbies li:hover svg { transform: none; }
 }
+
+.wake-note { margin: 12px 0 0; font-size: 13px; color: rgba(255,255,255,.72); }
+.wake-note.dark { color: var(--muted); }
